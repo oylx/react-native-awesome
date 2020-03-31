@@ -1,63 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-} from 'react-native';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+function HomeScreen() {
+	return (
+		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+			<Text>Home Screen</Text>
+		</View>
+	);
+}
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <View style={styles.container}>
-        <Text style={styles.welcome}>React-Native入门学习</Text>
-        <Image
-          style={styles.pic}
-          source={{
-            uri: 'https://avatars3.githubusercontent.com/u/6133685?v=3&s=460',
-          }}
-        />
-      </View>
-    </>
-  );
+const Stack = createStackNavigator();
+const App = () => {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen name="Home" component={HomeScreen} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'red',
-  },
-  pic: {
-    width: 100,
-    height: 100,
-  },
-});
 
 export default App;
